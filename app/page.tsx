@@ -385,7 +385,7 @@ export default function LandingPage() {
 }
 
 const DOWNLOAD_URL =
-  'https://github.com/jerrym1299/lyrola-landing-page/releases/latest/download/Lyrola_0.1.0_universal.dmg';
+  'https://github.com/jerrym1299/lyrola-landing-page/releases/latest/download/Lyrola_0.2.0_universal.dmg';
 
 function DownloadButton({ href = DOWNLOAD_URL }: { href?: string }) {
   return (
@@ -411,7 +411,7 @@ function DownloadButton({ href = DOWNLOAD_URL }: { href?: string }) {
         <span className="dl-title">
           Download for <span className="dl-accent">Mac</span>
         </span>
-        <span className="dl-meta">v0.1.0 · 17.1 MB</span>
+        <span className="dl-meta">v0.2.0 · 17.0 MB</span>
       </span>
     </a>
   );
