@@ -619,7 +619,6 @@
 @media (max-width: 1350px) {
   .landing-shell .nav-inner { padding: 14px 20px; gap: 16px; }
   .landing-shell .nav-links { margin-left: auto; }
-  .landing-shell .platforms-grid { grid-template-columns: 1fr; gap: 40px; }
   .landing-shell .platforms-logos { height: 360px; }
   .landing-shell .logo-orb.lg { width: 84px; height: 84px; }
   .landing-shell .logo-orb.md { width: 64px; height: 64px; }
@@ -670,6 +669,7 @@
 
 /* Platforms cluster collapses to a single horizontal row at narrower widths */
 @media (max-width: 900px) {
+  .landing-shell .platforms-grid { grid-template-columns: 1fr; gap: 40px; }
   .landing-shell .platforms-logos {
     height: auto !important;
     display: flex !important;
