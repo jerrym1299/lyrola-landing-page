@@ -330,7 +330,7 @@ export default function LandingPage() {
               </h2>
               <p className="cta-sub">No credit card. No bot. No calendar invites required.</p>
               <div className="hero-ctas" style={{ marginBottom: 14 }}>
-                <DownloadButton href="#top" />
+                <DownloadButton />
               </div>
               <div className="hero-meta" style={{ textAlign: 'center' }}>
                 v0.9.4 · macOS 12+
@@ -366,7 +366,10 @@ export default function LandingPage() {
   );
 }
 
-function DownloadButton({ href = '#' }: { href?: string }) {
+const DOWNLOAD_URL =
+  'https://github.com/jerrym1299/lyrola-landing-page/releases/latest/download/Lyrola_0.1.0_universal.dmg';
+
+function DownloadButton({ href = DOWNLOAD_URL }: { href?: string }) {
   return (
     <a className="dl-btn" href={href} aria-label="Download for Mac">
       <span className="dl-left">
@@ -390,7 +393,7 @@ function DownloadButton({ href = '#' }: { href?: string }) {
         <span className="dl-title">
           Download for <span className="dl-accent">Mac</span>
         </span>
-        <span className="dl-meta">v1.0 · 24 MB</span>
+        <span className="dl-meta">v0.1.0 · 17.1 MB</span>
       </span>
     </a>
   );
