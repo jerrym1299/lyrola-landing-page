@@ -47,7 +47,7 @@
 
 .app {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 1fr;
   height: 100%;
   min-height: 0;
   background: var(--bg-0);
@@ -55,7 +55,9 @@
   overflow: hidden;
 }
 .app > * { min-height: 0; min-width: 0; height: 100%; overflow: hidden; }
-.app.with-transcript { grid-template-columns: 240px 1fr 280px; }
+.app.with-sidebar { grid-template-columns: 240px 1fr; }
+.app.with-transcript { grid-template-columns: 1fr 280px; }
+.app.with-sidebar.with-transcript { grid-template-columns: 240px 1fr 280px; }
 
 .sidebar {
   background: var(--bg-1);

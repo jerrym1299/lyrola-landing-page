@@ -47,12 +47,12 @@ export function Sidebar({
         <div style={{ padding: '0 8px' }}>
           <div className="tree-item" onClick={() => setGranolaOpen((o) => !o)}>
             {granolaOpen ? <Icon.FolderOpen /> : <Icon.Folder />}
-            <span className="label">Granola internal c…</span>
+            <span className="label">Sprint 1</span>
           </div>
           {granolaOpen && (
             <div className="tree-item indent">
               <Icon.File />
-              <span className="label">Transcription l…</span>
+              <span className="label">Initial thoughts</span>
             </div>
           )}
         </div>

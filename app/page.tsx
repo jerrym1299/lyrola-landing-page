@@ -32,7 +32,7 @@ export default function LandingPage() {
 
         <header className="hero">
           <div className="pill">
-            <span className="pill-dot"></span> Now in beta · Mac & Windows
+            <span className="pill-dot"></span> Now in beta · Mac Only
           </div>
           <h1 className="hero-title">
             The AI meeting notepad
@@ -54,7 +54,6 @@ export default function LandingPage() {
               Download for Windows
             </a>
           </div>
-          <div className="hero-meta">free · no bot · no calendar invite required</div>
         </header>
 
         <div className="preview-stage">
@@ -62,86 +61,9 @@ export default function LandingPage() {
           <iframe className="preview-frame" src="/meeting" title="Lyrola app preview" loading="lazy" />
         </div>
 
-        <section id="features">
-          <div className="section-wrap">
-            <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto' }}>
-              <div className="eyebrow">// What we do</div>
-              <h2 className="section-title">
-                Built for people in <em>back-to-back</em> calls.
-              </h2>
-              <p className="section-sub center">
-                Stop frantically typing. Stop dreading the post-meeting cleanup. Lyrola handles the boring parts
-                so you can stay present.
-              </p>
-            </div>
-
-            <div className="features">
-              <Feature
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                  </svg>
-                }
-                title="No bot in the call"
-                body={"Lyrola listens locally on your device. No \"Notetaker\" appearing in the participant list. No awkward client moments."}
-              />
-              <Feature
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 18V5l12-2v13" />
-                    <circle cx="6" cy="18" r="3" />
-                    <circle cx="18" cy="16" r="3" />
-                  </svg>
-                }
-                title="Works in every app"
-                body="Zoom, Meet, Teams, phone speakers, even in-person. If sound comes out of your machine, Lyrola hears it."
-              />
-              <Feature
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                  </svg>
-                }
-                title="Action items & summaries"
-                body="Get clean action items and meeting summaries pulled straight from what was said — ready to share the moment the call ends."
-              />
-              <Feature
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="11" width="18" height="11" rx="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                }
-                title="Live meeting transcriptions"
-                body="Watch the conversation transcribe itself in real time, color-coded by speaker. Searchable from the moment a word is spoken."
-              />
-              <Feature
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  </svg>
-                }
-                title="Ask anything, during or after"
-                body="Ask an AI agent questions mid-call without breaking flow, or revisit any meeting later — Lyrola searches across every conversation you've had."
-              />
-              <Feature
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6z" />
-                  </svg>
-                }
-                title="Made for fast typers"
-                body="Markdown shortcuts, slash commands, keyboard-only flow. Built by people who hate clicking."
-              />
-            </div>
-          </div>
-        </section>
-
         <section>
           <div className="section-wrap">
             <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 20px' }}>
-              <div className="eyebrow">// Before &amp; after</div>
               <h2 className="section-title">
                 Your scrappy notes,
                 <br />
@@ -279,7 +201,6 @@ export default function LandingPage() {
         <section id="how">
           <div className="section-wrap">
             <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto' }}>
-              <div className="eyebrow">// How it works</div>
               <h2 className="section-title">Three things, in order.</h2>
             </div>
 
@@ -294,9 +215,6 @@ export default function LandingPage() {
         <section id="download">
           <div className="section-wrap">
             <div className="cta-card">
-              <div className="eyebrow" style={{ justifyContent: 'center', textAlign: 'center' }}>
-                // Free during beta
-              </div>
               <h2
                 className="section-title center"
                 style={{ fontFamily: 'var(--font-inter), sans-serif', fontWeight: 600, letterSpacing: '-0.02em' }}
@@ -313,9 +231,7 @@ export default function LandingPage() {
                   </svg>
                   Download for Mac
                 </a>
-                <a className="btn btn-lg" href="#">
-                  Download for Windows
-                </a>
+                
               </div>
               <div className="hero-meta" style={{ textAlign: 'center' }}>
                 v0.9.4 · macOS 12+ · Windows 10+
@@ -344,16 +260,6 @@ export default function LandingPage() {
         </footer>
       </div>
     </>
-  );
-}
-
-function Feature({ icon, title, body }: { icon: React.ReactNode; title: string; body: string }) {
-  return (
-    <div className="feature">
-      <div className="feature-ico">{icon}</div>
-      <h3>{title}</h3>
-      <p>{body}</p>
-    </div>
   );
 }
 

@@ -17,6 +17,7 @@ const fmt = (s: number) => {
 
 export default function MeetingPage() {
   const [activeId, setActiveId] = useState('m1');
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [transcriptOpen, setTranscriptOpen] = useState(true);
   const [recording, setRecording] = useState(true);
   const [time, setTime] = useState(127);
@@ -24,6 +25,17 @@ export default function MeetingPage() {
   const [notesOpen, setNotesOpen] = useState(true);
   const [aiOpen, setAiOpen] = useState(true);
   const [bottomMode, setBottomMode] = useState<'chat' | 'wave'>('chat');
+
+  useEffect(() => {
+    const checkWidth = () => {
+      const w = window.innerWidth;
+      if (w < 1100) setTranscriptOpen(false);
+      if (w < 800) setSidebarOpen(false);
+    };
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => window.removeEventListener('resize', checkWidth);
+  }, []);
 
   useEffect(() => {
     if (!recording) return;
@@ -34,12 +46,16 @@ export default function MeetingPage() {
   const meetings = MEETINGS.map((m) => ({ ...m, live: m.id === activeId && recording }));
 
   const inner = (
-    <div className={`app ${transcriptOpen ? 'with-transcript' : ''}`}>
-      <Sidebar activeId={activeId} meetings={meetings} onSelect={setActiveId} />
+    <div className={`app ${sidebarOpen ? 'with-sidebar' : ''} ${transcriptOpen ? 'with-transcript' : ''}`}>
+      {sidebarOpen && <Sidebar activeId={activeId} meetings={meetings} onSelect={setActiveId} />}
 
       <main className="main">
         <div className="toolbar">
-          <button className="icon-btn" title="Toggle sidebar">
+          <button
+            className={`icon-btn ${sidebarOpen ? 'active' : ''}`}
+            onClick={() => setSidebarOpen((o) => !o)}
+            title="Toggle sidebar"
+          >
             <Icon.Sidebar />
           </button>
           <div className="toolbar-right">

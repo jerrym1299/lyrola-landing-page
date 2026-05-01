@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
 const inter = Inter({
@@ -16,10 +17,11 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
+const quadrant = localFont({
+  src: [
+    { path: './fonts/quadrant.otf', weight: '400', style: 'normal' },
+    { path: './fonts/quadrant-italic.otf', weight: '400', style: 'italic' },
+  ],
   variable: '--font-serif',
   display: 'swap',
 });
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${quadrant.variable}`}>
       <body>{children}</body>
     </html>
   );
