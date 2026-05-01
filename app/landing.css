@@ -208,6 +208,7 @@
   border: 1px solid var(--border);
   font-size: 13px; color: var(--text-dim);
   margin-bottom: 28px;
+  white-space: nowrap;
 }
 .landing-shell .pill-dot {
   width: 6px; height: 6px; border-radius: 50%;
@@ -260,10 +261,16 @@
   filter: blur(40px);
   z-index: -1;
 }
+.landing-shell .preview-scaler {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  position: relative;
+}
+.landing-shell .preview-static { display: none; }
 .landing-shell .preview-frame {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   border: 1px solid var(--border-strong);
   border-radius: 14px;
   background: #14112a;
@@ -585,18 +592,148 @@
   font-family: var(--font-mono), 'JetBrains Mono', monospace;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .landing-shell .nav-links { display: none; }
-  .landing-shell .nav-links .btn-primary { display: inline-flex; }
+/* Mobile + small desktops: swap live iframe preview for static screenshot */
+@media (max-width: 1200px) {
+  .landing-shell .preview-scaler {
+    aspect-ratio: 1000 / 573;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  .landing-shell .preview-live { display: none !important; }
+  .landing-shell .preview-static {
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.5),
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Responsive — small desktops + tablets + mobile */
+@media (max-width: 1200px) {
+  .landing-shell .nav-inner { padding: 14px 20px; gap: 16px; }
+  .landing-shell .nav-links { margin-left: auto; }
   .landing-shell .platforms-grid { grid-template-columns: 1fr; gap: 40px; }
   .landing-shell .platforms-logos { height: 360px; }
   .landing-shell .logo-orb.lg { width: 84px; height: 84px; }
   .landing-shell .logo-orb.md { width: 64px; height: 64px; }
   .landing-shell .logo-orb.sm { width: 50px; height: 50px; }
   .landing-shell .logo-orb.xs { width: 40px; height: 40px; }
-  .landing-shell .split { grid-template-columns: 1fr; gap: 40px; }
+  .landing-shell .split { grid-template-columns: 1fr !important; gap: 40px !important; }
   .landing-shell .foot-inner { grid-template-columns: 1fr 1fr; }
   .landing-shell .foot-inner-min { grid-template-columns: 1fr; gap: 24px; }
   .landing-shell .foot-col-inline { justify-content: flex-start; }
+
+  .landing-shell .hero { padding: 56px 20px 28px; }
+  .landing-shell .section-wrap { padding: 64px 20px; }
+  .landing-shell .preview-stage { padding: 0 20px; margin: 40px auto 80px; }
+
+  /* Notes -> Enhanced: stack with arrow OUTSIDE the cards (not overlapping) */
+  .landing-shell .split-arrow-mid {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: rotate(90deg) !important;
+    margin: -8px auto !important;
+  }
+
+  /* CTA card */
+  .landing-shell .cta-card { padding: 64px 24px 56px; border-radius: 16px; }
+  .landing-shell .cta-card .cta-title { font-size: clamp(40px, 9vw, 64px); }
+  .landing-shell .cta-card .cta-sub { margin-bottom: 32px; }
+
+  /* Buttons */
+  .landing-shell .hero-ctas { width: 100%; }
+  .landing-shell .hero-ctas .dl-btn {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .landing-shell .dl-btn .dl-right { padding: 14px 18px 14px 16px; }
+
+  /* Footer */
+  .landing-shell footer { padding: 40px 20px 28px; }
+  .landing-shell .foot-bar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+/* Platforms cluster collapses to a single horizontal row at narrower widths */
+@media (max-width: 900px) {
+  .landing-shell .platforms-logos {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 4px;
+    overflow: hidden;
+  }
+  .landing-shell .platforms-logos::before,
+  .landing-shell .platforms-logos::after { display: none !important; }
+  .landing-shell .logo-orb {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    flex: 0 0 auto;
+  }
+  .landing-shell .logo-orb::before { display: none !important; }
+  .landing-shell .logo-orb.dot { display: none !important; }
+  .landing-shell .logo-orb.lg,
+  .landing-shell .logo-orb.md,
+  .landing-shell .logo-orb.sm { width: 56px !important; height: 56px !important; }
+}
+
+@media (max-width: 560px) {
+  .landing-shell .hero { padding: 44px 18px 20px; }
+  .landing-shell h1.hero-title {
+    font-size: clamp(38px, 10vw, 64px) !important;
+    line-height: 1.04;
+  }
+  .landing-shell .hero-sub { font-size: 16px; margin-bottom: 28px; }
+  .landing-shell .pill { margin-bottom: 22px; font-size: 12px; }
+  .landing-shell .section-wrap { padding: 56px 18px; }
+  .landing-shell h2.section-title { font-size: clamp(30px, 8vw, 48px) !important; }
+  .landing-shell .section-sub { font-size: 16px; }
+
+  .landing-shell .preview-stage { padding: 0 14px; margin: 28px auto 60px; }
+  .landing-shell .preview-frame { border-radius: 10px; }
+
+  /* Notes -> Enhanced cards: tighter padding */
+  .landing-shell .split-card { min-height: 0 !important; }
+  .landing-shell .split-card-body { padding: 8px 18px 22px !important; }
+
+  /* Platforms grid: smaller logos */
+  .landing-shell .logo-orb.lg,
+  .landing-shell .logo-orb.md,
+  .landing-shell .logo-orb.sm { width: 46px !important; height: 46px !important; }
+
+  /* CTA */
+  .landing-shell .cta-card { padding: 48px 20px 44px; }
+  .landing-shell .cta-card .cta-title { font-size: clamp(34px, 10vw, 56px); }
+  .landing-shell .cta-card .cta-sub { font-size: 15px; }
+
+  /* Demo titlebar a touch tighter */
+  .landing-shell .demo-titlebar { padding: 10px 14px; gap: 10px; }
+  .landing-shell .demo-tl-label { font-size: 11px; }
+
+  /* Footer collapse */
+  .landing-shell .foot-inner { grid-template-columns: 1fr !important; gap: 24px; }
+  .landing-shell .foot-col-inline { flex-direction: row; flex-wrap: wrap; gap: 20px; }
+
+  /* Buttons full width */
+  .landing-shell .dl-btn .dl-title { font-size: 15px; }
+  .landing-shell .dl-btn .dl-meta { font-size: 10.5px; }
 }

@@ -35,7 +35,21 @@ export default function LandingPage() {
 
         <div className="preview-stage">
           <div className="preview-glow"></div>
-          <iframe className="preview-frame" src="/meeting" title="Lyrola app preview" loading="lazy" />
+          <div className="preview-scaler">
+            <iframe
+              className="preview-frame preview-live"
+              src="/meeting"
+              title="Lyrola app preview"
+              loading="lazy"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="preview-static"
+              src="/assets/lyrola-app-preview.png"
+              alt="Lyrola app preview"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         {/* SPLIT: notes -> enhanced */}
@@ -58,6 +72,7 @@ export default function LandingPage() {
             >
               {/* Card 1: your notes + transcript */}
               <div
+                className="split-card"
                 style={{
                   background: '#1a1730',
                   border: '1px solid var(--border)',
@@ -89,7 +104,7 @@ export default function LandingPage() {
                   <span className="dot dot-y"></span>
                   <span className="dot dot-g"></span>
                 </div>
-                <div style={{ padding: '10px 28px 28px' }}>
+                <div className="split-card-body" style={{ padding: '10px 28px 28px' }}>
                   <div
                     style={{
                       fontFamily: 'var(--font-serif), serif',
@@ -143,6 +158,7 @@ export default function LandingPage() {
 
               {/* Arrow between cards */}
               <div
+                className="split-arrow-mid"
                 style={{
                   position: 'absolute',
                   left: '50%',
@@ -175,6 +191,7 @@ export default function LandingPage() {
 
               {/* Card 2: AI enhanced */}
               <div
+                className="split-card"
                 style={{
                   background: 'linear-gradient(180deg, rgba(189,188,253,0.06) 0%, #1a1730 100%)',
                   border: '1px solid var(--border-strong)',
@@ -206,7 +223,7 @@ export default function LandingPage() {
                   <span className="dot dot-y"></span>
                   <span className="dot dot-g"></span>
                 </div>
-                <div style={{ padding: '10px 28px 28px' }}>
+                <div className="split-card-body" style={{ padding: '10px 28px 28px' }}>
                   <div
                     style={{
                       fontFamily: 'var(--font-serif), serif',
@@ -225,13 +242,14 @@ export default function LandingPage() {
                   <EnhancedSection
                     label={
                       <>
-                        Current Provider <span style={{ textTransform: 'none' }}>(Tuesday.ai)</span>
+                        Current provider{' '}
+                        <span style={{ color: 'var(--text-faint)', fontWeight: 400 }}>(Tuesday.ai)</span>
                       </>
                     }
                   >
                     Too complex for non-technical team members. $180 per employee per year (&quot;too expensive&quot;).
                   </EnhancedSection>
-                  <EnhancedSection label="Their Requirements" last>
+                  <EnhancedSection label="Their requirements" last>
                     Finding a better fit is &quot;a priority for Q2.&quot; Need secure information sharing.
                   </EnhancedSection>
                 </div>
@@ -412,11 +430,11 @@ function EnhancedSection({
     <>
       <div
         style={{
-          fontFamily: 'var(--font-mono), monospace',
-          fontSize: 10.5,
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          color: 'var(--text-faint)',
+          fontFamily: 'var(--font-spectral), serif',
+          fontSize: 15,
+          fontWeight: 500,
+          color: '#b9a8ff',
+          letterSpacing: '-0.005em',
           marginBottom: 6,
         }}
       >
