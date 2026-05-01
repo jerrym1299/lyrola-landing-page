@@ -593,7 +593,7 @@
 }
 
 /* Mobile + small desktops: swap live iframe preview for static screenshot */
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
   .landing-shell .preview-scaler {
     aspect-ratio: 1000 / 573;
     overflow: hidden;
@@ -616,7 +616,7 @@
 }
 
 /* Responsive — small desktops + tablets + mobile */
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
   .landing-shell .nav-inner { padding: 14px 20px; gap: 16px; }
   .landing-shell .nav-links { margin-left: auto; }
   .landing-shell .platforms-grid { grid-template-columns: 1fr; gap: 40px; }
