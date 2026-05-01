@@ -1,14 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { JetBrains_Mono, Spectral } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-inter',
-  display: 'swap',
-});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -17,10 +10,36 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
-const quadrant = localFont({
+const spectral = Spectral({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-spectral',
+  display: 'swap',
+});
+
+const neueMontreal = localFont({
   src: [
-    { path: './fonts/quadrant.otf', weight: '400', style: 'normal' },
-    { path: './fonts/quadrant-italic.otf', weight: '400', style: 'italic' },
+    { path: './fonts/NeueMontreal-Light.otf', weight: '300', style: 'normal' },
+    { path: './fonts/NeueMontreal-LightItalic.otf', weight: '300', style: 'italic' },
+    { path: './fonts/NeueMontreal-Regular.otf', weight: '400', style: 'normal' },
+    { path: './fonts/NeueMontreal-Italic.otf', weight: '400', style: 'italic' },
+    { path: './fonts/NeueMontreal-Medium.otf', weight: '500', style: 'normal' },
+    { path: './fonts/NeueMontreal-MediumItalic.otf', weight: '500', style: 'italic' },
+    { path: './fonts/NeueMontreal-Bold.otf', weight: '700', style: 'normal' },
+    { path: './fonts/NeueMontreal-BoldItalic.otf', weight: '700', style: 'italic' },
+  ],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const ftBureau = localFont({
+  src: [
+    { path: './fonts/FTBureau-Light.otf', weight: '300', style: 'normal' },
+    { path: './fonts/FTBureau-LightItalic.otf', weight: '300', style: 'italic' },
+    { path: './fonts/FTBureau-Regular.otf', weight: '400', style: 'normal' },
+    { path: './fonts/FTBureau-RegularItalic.otf', weight: '400', style: 'italic' },
+    { path: './fonts/FTBureau-Medium.otf', weight: '500', style: 'normal' },
+    { path: './fonts/FTBureau-Bold.otf', weight: '700', style: 'normal' },
   ],
   variable: '--font-serif',
   display: 'swap',
@@ -34,7 +53,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${quadrant.variable}`}>
+    <html
+      lang="en"
+      className={`${neueMontreal.variable} ${ftBureau.variable} ${spectral.variable} ${jetbrainsMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
